@@ -1,0 +1,66 @@
+.thems-container {
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  perspective: 1200px; /* Increased perspective for better 3D effect */
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  color: #ffc107;
+}
+
+.themes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.theme-card {
+  width: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s, box-shadow 0.4s;
+  transform-style: preserve-3d; /* Enable 3D transformations */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.theme-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth transition for opacity */
+}
+
+.theme-card:hover {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.05); /* Slight rotation and scaling */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Deeper shadow for depth */
+}
+
+.theme-card:hover img {
+  transform: translateZ(20px); /* Move image forward for depth */
+  opacity: 0.9; /* Slightly reduce opacity */
+}
+
+.theme-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.4s ease; /* Smooth transition for overlay */
+}
+
+.theme-card:hover::before {
+  opacity: 0.3; /* Show overlay on hover */
+}
